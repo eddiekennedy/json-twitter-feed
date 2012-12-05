@@ -48,11 +48,12 @@
     // Loop over tweets
     $.each( tweets, function( i, tweet) {
       // Define list items and append to list
+      var theTweet = tweet.text.parseLinks().parseUsers().parseHash();
       var createdAt = formatDate( tweet.created_at );
       var $tweetLi = [
         '<li>',
           '<span class="tweet">',
-            tweet.text,
+            theTweet,
           '</span>',
           ' <span class="date">&times; ',
             '<a href="#">',
